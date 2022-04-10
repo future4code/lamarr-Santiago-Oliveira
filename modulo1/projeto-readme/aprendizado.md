@@ -1,0 +1,5 @@
+#Aprendizado da semana 
+
+        Aprendizado contínuo = Evolução
+
+    Nesse início de curso aprendi, primeira semana, eu aprendi a usar o Slack para trabalhar em comunidade/equipe, conheci um pouco mais do Zoom, tive uma **aula expetácular de Convivência e Diversidade++, fiquei **surpreso** e encatado com essa aula, **parabéns** Labenu por esse trabalho **magnífico** e que faz a diferente em nossas vidas, deixou **meu coração quentinho**. Aprendi a como tirar dúvidas durante o curso, aprendi a utilizar alguns sistema e plataformas que serão utilizadas durante o curso como: Git e Git Bash, GitHub, Vimeo, VS Code, Node.js e verificar sua versão no Git, aprendi um pouco mais sobre o contrato com a Labenu e onde tirar as dúvidas desse contrato e do ISA. Aprendi sobre a rotina do curso e alguns tópicos de padagogia, tive aula de empregabilidade com orientações importantíssimas para esse início e novo jornada. 
