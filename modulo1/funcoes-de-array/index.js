@@ -75,7 +75,7 @@ let petsSelecionados = pets.filter(verificarRaca)
 
 
 console.log(petsSelecionados);
- 
+  
 
 //Exercício 2
 
@@ -104,7 +104,7 @@ console.log(nomeCadaItem);
 // b) Crie um novo array que contenha um objeto com o nome e o preço de cada item, aplicando 5% de desconto em todos eles
 
 function produtosComDesconto (produtos){
-    return produtos.nome + produtos.preco * 0.5
+    return produtos.nome + produtos.preco * 0.95
 }
 
 let produtosComDescontoAplicado = produtos.map(produtosComDesconto)
