@@ -84,9 +84,11 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
 
 // EXERCÍCIO 10
 function retornaSegundoMaiorESegundoMenor(array) {
-    let novoArray = []
 
-    
+    let novoArray = array.sort(function(a, b){
+        return a - b;
+    })
+    return [novoArray[novoArray.length - 2], novoArray[1]];
 }
 
 // EXERCÍCIO 11
@@ -111,6 +113,38 @@ function retornaPessoaAnonimizada(pessoa) {
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
+//     let altura = 150
+//     let idadeMin = 14
+//     let idadeMax = 60
+
+//     let pessoasAutorizadas = []
+
+//     const pessoasNaFila = [
+//         {
+//         nome: "Maria",
+//         idade: 20,
+//         altura: 165
+//         },
+//         {
+//         nome: "Katarina",
+//         idade: 12,
+//         altura: 149
+//         },
+//         {
+//         nome: "Patrick",
+//         idade: 65,
+//         altura: 165
+//         }
+// ]
+
+//     return pessoas.filter(pessoasNaFila => {
+//         return (pessoasNaFila.altura > altura && 
+//        pessoasNaFila.idade > idadeMin && 
+//        pessoasNaFila.idadeMax < idadeMax)
+//        pessoasAutorizadas.push(pessoas)
+//         })
+
+       
 
 }
 
@@ -126,9 +160,8 @@ function retornaContasComSaldoAtualizado(contas) {
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-    
+   
 }
-
 // EXERCÍCIO 15B
 function retornaArrayOrdenadoPorData(consultas) {
    
