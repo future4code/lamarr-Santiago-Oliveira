@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;   
+}
+
+body {
+    font-size: 100%;
+}
+
+/* Estilização página Principal */
+
+.titulo-principal {
+    text-align: center;
+    color: white;
+    background-color: rgb(14, 14, 85);
+    margin-bottom: 60px;
+    padding: 15px;
+}
+
+.chamada {
+    text-align: center;
+    margin-left: 390px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    display: inline;
+    background-color: beige; 
+    padding: 3px;
+    font-size: 15px;   
+}
+
+nav {
+    margin: 50px auto;
+    text-align: center;
+}
+
+.nav {
+    padding: 10px;
+    color: black;
+}
+
+.imagem-principal {
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    background-color: gray;
+    padding: 80px;
+}
+
+.siga { 
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.redes-sociais {
+    padding-left: 10px;
+    width: 30px;
+}
+
+/* Estilização página Controle de Estoque */
+
+.titulo-tabela {
+    margin-left: 550px;
+    margin-bottom: 30px;
+}
+
+.comBordas {
+    border-collapse: collapse;
+    background: #FFFFF0;
+    margin-left: 400px;
+    margin-bottom: 30px;
+}
+
+.comBordas th {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.comBordas td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+.comBordas {
+    border: 1px solid black;
+    background: #F0FFF0;
+}
+
+ /* Estilização págida Adicionar Produto  */
+
+.add-produto {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#area {
+    text-align: center;
+}
+
+.campo-link {
+    margin-bottom: 10px;
+    margin-left: 53px;
+}
+
+.campo-descricao {
+    margin-bottom: 10px;
+    margin-left: 5px;
+   
+}
+
+.campo-preco {
+    margin-bottom: 10px;
+    margin-left: 50px;
+}
+
+.campo-quantidade {
+    margin-bottom: 10px;
+    
+}
+
+button {
+    background-color: aqua;
+    border-radius: 6px;
+    padding: 4px;
+    margin-bottom: 50px;
+}
+
+/* Estilização página Funcionários */
+
+.h2-funcionarios {
+    text-align: center;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.lista li{
+    border: 2px solid black;
+    padding: 5px 5px 5px 20px;
+    margin-bottom: 5px;
+}
+
+/* Estilização página Vendas */
+
+.h2-vendas {
+    border: 3px solid black;
+    text-align: center;
+}
+
+.form-pagina-vendas {
+    border: 3px solid black;    
+}
+
+.container {
+    margin-top: 30px;
+    margin-left: 60px;
+}
+
+.item1 {
+    margin-bottom: 5px;
+}
+
+.item2 {
+    margin-bottom: 5px;
+}
+
+.item3 {
+    margin-bottom: 5px;
+}
+
+.item4 {
+    margin-bottom: 5px;
+}
+
+.item5 {
+    margin-bottom: 5px;
+}
+
+.button-vendas {
+    margin-left: 20px;    
+}
+
+/* Estilização página Histórico de Vendas */
+
+.h2-historico {
+    text-align: center;
+    border: 3px solid black;
+    margin-bottom: 30px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.historico-vendas {
+    margin-left: 300px;
+    margin-bottom: 40px;
+}
+
+
+
+
+
