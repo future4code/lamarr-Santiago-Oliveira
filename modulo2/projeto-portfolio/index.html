@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html"><img class="logo" src="./images/Web-developer.jpg" alt="Imagem logo web Developer Job Description"></a>
+            <a class="menu" href="index.html">Sobre</a>
+            <a class="menu" href="cracha-nlw.html">Galeria de Projetos</a>  
+            <a class="menu" href="contato.html">Contato</a>  
+        </nav>
+
+            <h1 class="titulo">Bem vindes ao meu Portfólio!</h1>
+            <p class="chamada">Aqui você encontra um pouco da minha história profissional, <b>é um prazer te ter por aqui, bora lá me conhecer um pouco!</b></p>
+    
+    </header>
+
+    <main>
+        
+        <img class="imagem-perfil" src="./images/photoProfile.jpg" alt="Foto do perfil da pessoa desse portfólio, um homem branco, camisa preta com detalhes de flores, cabelo castanho escuro e curto, de óculos de grau, com fone de ouvido, na mesa têm um computador notebook, um monitor como segunda tela, um teclado mecânico com luzes de led colorida, alguns objetos de decoração.">
+        <p class="sobre-mim">Sobre mim:</p>
+        <section class="descricao">
+           
+            <p>Eu sou o Santiago, tenho 30 anos, sou casado com a Fernanda, há 11 anos, tenho duas nenéns pets, 
+            a Maria Pipoca e a Kyara, são lindas demais, pacotinhos de amor, aqui já dá para perceber os amores da minha vida,
+            agora vou falar de um outro amor, de algo que faz meus olhos brilharem, 
+            meu coração encher de emoção, vamos lá. <br>
+            A tecnologia, o computador, amo estudar sobre, e através dela poder resolver problemas, trazendo facilidade, 
+            melhorias e conforto para a vida das pessoas e impactar o mundo através da tecnologia. </br>
+            Aqui fica um breve resumo de quem eu sou e dos motores da minha vida. </p>
+        </section>
+
+        <h2 class="formacao">Formação</h2>
+        <section class="sessao-formacao">
+            
+            <div class="container">
+                <h3 class="instituicoes" >OneBitCode</h3>
+                <p class="itens">Javascript FullStack 8 week / html, css, sass, bulma / bootstrap / git e github / react / javascript / typescript / nodejs (Express) /
+                banco de dados (Mongo e Posgresql).</p>
+                <p class="itens">Ínicio: 10/01/2022 - Término: 30/07/2022</p>
+            </div>
+            <div class="container">
+                <h3 class="instituicoes">Danki Code</h3>
+                <p class="itens">Front-end / Desenvolvimento Web / Full Stack / Produtividade Programadores / Inglês para programadoes / 
+                Wordpress / Infraestrutura / Angência Web / Vivier de négocios onlive.</p>
+                <p class="itens">Ínicio: 10/02/2021 - Término: 20/12/2022</p>
+            </div>
+            <div class="container">
+                <h3 class="instituicoes">Uninove</h3>
+                <p class="itens">Tecnologia em Análise e Desnvolvimento de Sistemas</p>
+                <p class="itens">Ínicio: 10/02/2020 - Término: 30/06/2022</p>   
+            </div>
+            <div class="container">
+                <h3 class="instituicoes">Rocketseat</h3>
+                <p class="itens">Trilha nlw Mission Origin</p>
+                <p class="itens">Ínicio: 23/04/2022 - Término: 28/04/2022</p>
+            </div>
+            <div class="container">
+                <h3 class="instituicoes">Labenu</h3>
+                <p class="itens">Web Full Stack</p>
+                <p class="itens">Ínicio: 28/03/2022 - Término: 31/03/2023</p>
+            </div>
+        </section>
+
+        <a href="cracha-nlw.html"><h3 class="galeria">Galeria de Projetos</h3></a>        
+        
+        <h4 class="titulo-cracha"> <a href="cracha-nlw.html">cracha-nlw</a></h4>
+        <a href="cracha-nlw.html"><img class="img-projeto" src="./images/cracha-nlw.PNG" alt="Imagem de uma cracha virtual com foto de um um homem branco, camisa preta com detalhes de flores, cabelo castanho escuro e curto, de óculos de grau, com fone de ouvido, na mesa têm um computador notebook, um monitor como segunda tela, um teclado mecânico com luzes de led colorida, alguns objetos de decoração."></a>  
+        
+            <h4 class="lista-habilidades">Lista de habilidades técnicas e comportamentais</h4>
+        
+            <ul class="lista">
+                <div class="container-lista">
+                    <li class="item-lista">HTML <br> Facilidade na utilização. </li>
+                    <li class="item-lista">Git <br> Aplico os comandos com tranqulidade. </li>
+                    <li class="item-lista">Persistência <br> Eu não desisto do que eu quero.</li>
+                    <li class="item-lista">Consistência <br> Fazer um pouco todos os dias. </li>
+                    <li class="item-lista">Disciplina <br> Fazer o que precisa ser feito, mesmo quando não está motivado.</li>
+                </div>
+            </ul>
+        
+
+    </main>
+
+        <div id="area">
+            <form class="formulario" action="#">
+                <fieldset>
+                    <legend>Formulário</legend>
+                    <div class="inputs">
+                        <label class="input-text" for="nome">Nome</label>
+                        <input class="input-text" type="text" id="nome" name="nome"><br><br>
+                        <label class="input-email" for="email">E-mail</label>
+                        <input class="input-email" type="email" id="email" name="email"><br><br>
+                        <label for="mensagem">Mensagem</label><br>
+                        <textarea class="mensagem" name="mensagem" id="mensagem" cols="30" rows="10"></textarea><br><br>
+                        <button class="botao">Enviar</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div><!-- area -->
+    <footer id="rodape">
+        <a href="https://github.com/SantiagoOliveira22"><img class="link-github" src="./images/github.jpg" alt="Ícone do github, desenho de um gatinho preto e fundo branco, clicando em cima, é direcionado para o github"></a>
+        <a href="https://www.linkedin.com/in/santiago-cardoso-de-oliveira-8116a71a5"><img class="link-in" src="./images/linkedin.png" alt="Ícone do linkedin, clicando em cima, é direcionado para o linkedin"></a>
+        <a href="https://instagram.com/santiago_oliveira22/"><img class="link-insta" src="./images/instagram.jpg" alt="Ícone do instagram, clicando em cima, é direcionado para o instagram"></a> 
+        <a href="https://santiagoc.oliveira@gmail.com"><img class="link-email" src="./images/email.png" alt="Ícone do email, clicando em cima, é direcionado para o email"></a>
+        <a href="https://bit.ly/3Gaf8o6"><img class="link-youtube" src="./images/youtube.jpg" alt="Ícone do youtube, clicando em cima, é direcionado para o youtube"></a>
+           
+        <div class="frase-final">
+         <p class="fim">Feito com amor!</p>
+         <p class="direitos">Todos os Direitos reservados!</p>
+        </div>
+    </footer>
+
+</body>
+</html>
