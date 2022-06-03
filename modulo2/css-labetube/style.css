@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+}
+
+/* index */
+
+
+.cabecalho {
+    background-color: orange;
+    display: grid;
+    grid-template-columns: 190vh 1fr;
+    justify-items: start;
+    align-items: center;
+}
+
+.cabecalho p {
+    font-size: 50px;
+    padding: 10px 15px;
+}
+
+
+.img-logo {
+    width: 190px;
+}
+
+.campo-busca {
+    margin-right: 10px;
+    width: 100px;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 10fr 800px 10fr;
+}
+
+.conteudo-principal {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 10px;
+    background-color: black;
+    padding: 100px;
+    
+}
+
+.card {
+    width: 40vh;
+    border: 1px solid  green;
+}
+
+.paragrafo-main {
+    display: grid;
+    justify-items: start;
+    color: white;
+    padding: 50px;
+}
+
+.img-main {
+    width: 40vh;
+    display: grid;
+    justify-items: stretch;
+    align-items: stretch;
+
+}
+
+.rodape {
+    background-color: orange;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+/* Página Video 1 */
+
+.conteudo-video1 {
+    display: grid;
+    justify-items: center;
+    background-color: black;
+}
+
+.conteudo-video1 h1 {
+    display: grid;
+    align-items: center;
+    margin-top: 40px;
+    color: white;
+}
+
+.conteudo-video2 {
+    display: grid;
+    justify-items: center;
+    background-color: black;
+}
+
+.conteudo-video2 h1 {
+    display: grid;
+    align-items: center;
+    margin-top: 40px;
+    color: white;
+}
+
+video {
+    width: 500px;
+    border: 1px solid green;
+}
