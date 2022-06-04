@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+    background-color: mediumvioletred;
+}
+
+#titulo {
+    font-size: 28px;
+    margin-left: -1070px;
+}
+
+.imagem-bolinho {
+    width: 25px;
+}
+
+/* container */
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Aside */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px;
+}
+
+aside {
+    background-color: #f2d0e0;
+    width: 400px;
+    padding: 15px;
+}
+
+a {
+    font-size: 12px;
+    color: black; 
+    font-weight: bold;
+    padding: 10px;
+}
+
+.link1 {
+    margin-left: -120px;
+}
+
+.link2 {
+    margin-left: -100px;
+}
+
+.link3 {
+    margin-left: -100px;
+}
+
+.link4 {
+    margin-left: -120px;
+}
+
+h1 {
+    font-size: 25px;  
+}
+
+.item {
+    width: 15px;
+    margin: 1px;
+}
+
+/*  Main */
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.content {
+    margin: 15px;
+    box-shadow: 1px 1px 1px 1px darkgray;
+    width: 200px;
+}
+
+.item2 {
+    width: 200px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bolder;
+
+}
+
+.descricao {
+    text-align: center;
+    font-size: 12px;
+    padding: 10px;
+
+}
+
+/* Rodapé */
+
+#rodape {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+footer {
+    background-color: mediumvioletred;
+    width: 100%;
+    padding: 1%;
+}
