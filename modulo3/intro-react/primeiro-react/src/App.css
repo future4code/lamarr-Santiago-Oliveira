@@ -1,0 +1,34 @@
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container img {
+  width: 30vw;
+  height: 60vh;
+}
+
+.container h1 {
+  font-size: 30px;
+}
+
+h1:hover {
+  color: red;
+}
+
+p {
+  font-size: 30px;
+}
+
+button {
+  font-size: 20px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
