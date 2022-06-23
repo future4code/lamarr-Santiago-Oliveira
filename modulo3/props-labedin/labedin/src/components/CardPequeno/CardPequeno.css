@@ -1,0 +1,15 @@
+.card-pequeno {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    border: 1px solid black;
+    padding: 20px 10px;
+}
+
+.card-pequeno img {
+    width: 30px;
+}
+
+.card-pequeno p {
+    margin-left: 10px;
+}
