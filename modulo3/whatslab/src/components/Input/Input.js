@@ -3,7 +3,7 @@ import { Div, Form, AsideEsquerda, Sessao1, Sessao2, Sessao3, AsideDireita } fro
 
 
 export function Input() {
-
+    //estados
     const [inputNome, setInputNome] = useState("")
     const [inputMsg, setInputMsg] = useState("")
     const [usuario, setUsuario] = useState([])
@@ -16,21 +16,29 @@ export function Input() {
         setInputMsg(event.target.value)
     }
 
+    //adicionar nova mensagem
     const enviarMensagem = (event) => {
         event.preventDefault()
 
-        const novaMensagem = {nome: inputNome, mensagem: inputMsg}
-        const novaListaDeMensagem = [...usuario, novaMensagem]
+        const novoUsuario = { nome: inputNome, mensagem: inputMsg }
+        const novaListaDeMensagem = [...usuario, novoUsuario]
         setUsuario(novaListaDeMensagem)
     }
 
-      
+    const listaDeMensagem = usuario.map((usuario, index) => {
+        return (
+            <div key={index}>
+                <p>{usuario.nome}</p>
+                <p>{usuario.mensagem}</p>
+            </div>
+        )
+    })
 
     return (
         <Div>
-             <AsideEsquerda />
-            <Form> 
-                 
+            <AsideEsquerda />
+            <Form>
+
                 <Sessao1>
                     <label>Nome:</label>
                     <input
@@ -41,18 +49,19 @@ export function Input() {
                 </Sessao1>
                 <Sessao2>
                     <label>Mensagem:</label>
-                    <input 
+                    <input
                         placeholder="Mensagem"
                         value={inputMsg}
                         onChange={handleInputMsg}
-                         />
+                    />
                 </Sessao2>
                 <Sessao3>
                     <button onClink={enviarMensagem}>Enviar</button>
                 </Sessao3>
-               
+
             </Form>
             <AsideDireita />
+            {listaDeMensagem}
         </Div>
     )
 }
