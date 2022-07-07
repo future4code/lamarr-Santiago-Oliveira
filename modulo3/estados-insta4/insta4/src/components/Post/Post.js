@@ -10,6 +10,7 @@ import { SecaoComentario } from '../SecaoComentario/SecaoComentario'
 
 
 function Post(props) {
+
   const [numeroCurtidas, setNumeroCurtidas] = useState(0)
   const [curtido, setCurtido] = useState(false)
   const [comentando, setComentando] = useState(false)
@@ -58,6 +59,8 @@ function Post(props) {
     componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} />
   }
 
+
+
   return (
     <div className='PostContainer'>
       <div className='PostHeader'>
@@ -83,6 +86,8 @@ function Post(props) {
       {componenteComentario}
     </div>
   )
+
+
 }
 
 
