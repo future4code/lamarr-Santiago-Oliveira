@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Post from './components/Post/Post';
-import { Div, Form, InputNome, Sessao, DivPost} from './style'
+import { Div, Form, Input, Sessao, DivPost} from './style'
 
 
 function App() {
@@ -52,14 +52,14 @@ const addPost = (e) => {
       <Form>
         <Sessao>
         <label>Nome usuário:</label>
-        <InputNome placeholder='Insira seu nome de usuário'
+        <Input placeholder='Insira seu nome de usuário'
                value={posts.nomeUsuario}
                onChange={handleInputNome}/>
         </Sessao>
 
         <Sessao>
         <label>Foto do perfil:</label>
-        <input type='file'
+        <Input type='img'
                placeholder='Insira sua foto de perfil'
                value={posts.fotoUsuario}
                onChange={handleInputFotoUsuario}/>
@@ -67,7 +67,7 @@ const addPost = (e) => {
 
          <Sessao>
         <label>Foto do post:</label>
-        <input type='file'
+        <Input type='img'
                placeholder='Insira seu post'
                value={posts.fotoPost}
                onChange={handleInputFotoPost}/>

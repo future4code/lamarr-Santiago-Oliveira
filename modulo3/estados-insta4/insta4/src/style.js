@@ -33,8 +33,9 @@ export const Form = styled.form`
     }
 `
 
-export const InputNome = styled.input`
+export const Input = styled.input`
     border: 0;
+    padding: 10px;
     outline: 0;
     :hover {
         border: 1px solid pink;
