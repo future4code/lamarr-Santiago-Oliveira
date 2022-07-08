@@ -26,6 +26,7 @@ export function Input() {
     }
 
     const listaDeMensagem = usuario.map((usuario, index) => {
+        console.log(usuario.nome)
         return (
             <div key={index}>
                 <p>{usuario.nome}</p>
@@ -56,7 +57,7 @@ export function Input() {
                     />
                 </Sessao2>
                 <Sessao3>
-                    <button onClink={enviarMensagem}>Enviar</button>
+                    <button onClick={enviarMensagem}>Enviar</button>
                 </Sessao3>
 
             </Form>
