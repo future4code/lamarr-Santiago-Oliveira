@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './style.css'
+import { Container, Sessao1, Sessao2, Img} from './style'
 
 import { IconeComContador } from '../IconeComContador/IconeComContador'
 import iconeCoracaoBranco from '../../img/favorite-white.svg'
@@ -62,15 +62,15 @@ function Post(props) {
 
 
   return (
-    <div className='PostContainer'>
-      <div className='PostHeader'>
-        <img className='UserPhoto' src={props.fotoUsuario} alt={'Imagem do usuario'} />
+    <Container>
+      <Sessao1>
+        <Img src={props.fotoUsuario} alt={'Imagem do usuario'} />
         <p>{props.nomeUsuario}</p>
-      </div>
+      </Sessao1>
 
-      <img className='PostPhoto' src={props.fotoPost} alt={'Imagem do post'} />
+      <Img src={props.fotoPost} alt={'Imagem do post'} />
 
-      <div className='PostFooter'>
+      <Sessao2>
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={onClickCurtida}
@@ -82,9 +82,9 @@ function Post(props) {
           onClickIcone={onClickComentario}
           valorContador={numeroComentarios}
         />
-      </div>
+      </Sessao2>
       {componenteComentario}
-    </div>
+    </Container>
   )
 
 
