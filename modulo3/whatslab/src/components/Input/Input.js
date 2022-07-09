@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Div, Form, AsideEsquerda, Sessao1, Sessao2, Sessao3, AsideDireita } from '../style'
+import { Body, Parte1Conteudo, Parte2Conteudo, Form, AsideEsquerda, Content, Sessao1, Sessao2, Sessao3, AsideDireita } from '../style'
+import { CardMensagem } from '../CardMensagem/CardMensagem'
 
 
 export function Input() {
@@ -23,46 +24,69 @@ export function Input() {
         const novoUsuario = { nome: inputNome, mensagem: inputMsg }
         const novaListaDeMensagem = [...usuario, novoUsuario]
         setUsuario(novaListaDeMensagem)
+
+        setInputNome("")
+        setInputMsg("")
     }
 
-    const listaDeMensagem = usuario.map((usuario, index) => {
-        console.log(usuario.nome)
-        return (
-            <div key={index}>
-                <p>{usuario.nome}</p>
-                <p>{usuario.mensagem}</p>
-            </div>
-        )
-    })
+    /*     const listaDeMensagem = usuario.map((usuario, index) => {
+            console.log(usuario.nome)
+            return (
+                <Card key={index}>
+                    <div>
+                        <p>{usuario.nome}:</p>
+                        <p>{usuario.mensagem}</p>
+                    </div>
+                </Card>
+            )
+        }) */
 
     return (
-        <Div>
+        <Body>
             <AsideEsquerda />
-            <Form>
 
-                <Sessao1>
-                    <label>Nome:</label>
-                    <input
-                        placeholder="Usuário"
-                        value={inputNome}
-                        onChange={handleInputNome}
-                    />
-                </Sessao1>
-                <Sessao2>
-                    <label>Mensagem:</label>
-                    <input
-                        placeholder="Mensagem"
-                        value={inputMsg}
-                        onChange={handleInputMsg}
-                    />
-                </Sessao2>
-                <Sessao3>
-                    <button onClick={enviarMensagem}>Enviar</button>
-                </Sessao3>
+            <Content>
 
-            </Form>
+            <Parte1Conteudo>
+
+                {usuario.map((usuario, index) => (
+
+                    <CardMensagem
+                        key={index}
+
+                    />
+                ))}
+            </Parte1Conteudo>
+
+           <Parte2Conteudo>
+                <Form>
+                    <Sessao1>
+                        <label>Nome:</label>
+                        <input
+                            placeholder="Usuário"
+                            value={inputNome}
+                            onChange={handleInputNome}
+                        ></input>
+
+                    </Sessao1>
+                    <Sessao2>
+                        <label>Mensagem:</label>
+                        <input
+                            placeholder="Digite uma Mensagem"
+                            value={inputMsg}
+                            onChange={handleInputMsg}
+                        />
+                    </Sessao2>
+                    <Sessao3>
+                        <button onClick={enviarMensagem}>Enviar</button>
+                    </Sessao3>
+                </Form>
+                </Parte2Conteudo>
+                </Content>
             <AsideDireita />
-            {listaDeMensagem}
-        </Div>
+
+            {/*  {listaDeMensagem} */}
+
+        </Body>
     )
 }
