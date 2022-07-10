@@ -1,6 +1,9 @@
 import React, { useState } from "react"
-import { Body, Parte1Conteudo, Parte2Conteudo, Form, AsideEsquerda, Content, Sessao1, Sessao2, Sessao3, AsideDireita } from '../style'
+import logo from '../img/logo-labenu.jpg'
+import { Body, Header, Parte1Conteudo, Form, AsideEsquerda, Content, Footer, Sessao1, Sessao2, Sessao3, AsideDireita } from '../style'
 import { CardMensagem } from '../CardMensagem/CardMensagem'
+
+import SendIcon from '@mui/icons-material/Send'
 
 
 export function Input() {
@@ -8,6 +11,7 @@ export function Input() {
     const [inputNome, setInputNome] = useState("")
     const [inputMsg, setInputMsg] = useState("")
     const [usuario, setUsuario] = useState([])
+    const [user, setUser] = useState([{ author: 'eu' }])
 
     const handleInputNome = (event) => {
         setInputNome(event.target.value)
@@ -29,64 +33,69 @@ export function Input() {
         setInputMsg("")
     }
 
-    /*     const listaDeMensagem = usuario.map((usuario, index) => {
-            console.log(usuario.nome)
-            return (
-                <Card key={index}>
-                    <div>
-                        <p>{usuario.nome}:</p>
-                        <p>{usuario.mensagem}</p>
-                    </div>
-                </Card>
-            )
-        }) */
-
     return (
-        <Body>
-            <AsideEsquerda />
+        <>
+            <Header>
+                <img src={logo} alt="Logo da Labenu" />
+                <h1>WhatsLab</h1>
+            </Header>
+            <Body>
 
-            <Content>
+                <AsideEsquerda />
 
-            <Parte1Conteudo>
+                <Content>
+                    <div>
 
-                {usuario.map((usuario, index) => (
+                        <Parte1Conteudo>
 
-                    <CardMensagem
-                        key={index}
+                            {usuario.map((usuario, index) => (
 
-                    />
-                ))}
-            </Parte1Conteudo>
+                                <CardMensagem
+                                    key={index}
+                                    nome={usuario.nome}
+                                    mensagem={usuario.mensagem}
+                                    user={usuario.nome}
 
-           <Parte2Conteudo>
-                <Form>
-                    <Sessao1>
-                        <label>Nome:</label>
-                        <input
-                            placeholder="Usuário"
-                            value={inputNome}
-                            onChange={handleInputNome}
-                        ></input>
+                                />
+                            ))}
+                        </Parte1Conteudo>
+                    </div>
 
-                    </Sessao1>
-                    <Sessao2>
-                        <label>Mensagem:</label>
-                        <input
-                            placeholder="Digite uma Mensagem"
-                            value={inputMsg}
-                            onChange={handleInputMsg}
-                        />
-                    </Sessao2>
-                    <Sessao3>
-                        <button onClick={enviarMensagem}>Enviar</button>
-                    </Sessao3>
-                </Form>
-                </Parte2Conteudo>
+                    <Footer>
+                        <div>
+
+                            <Form>
+                                <Sessao1>
+                                    <label>Nome:</label>
+                                    <input
+                                        placeholder="Usuário"
+                                        value={inputNome}
+                                        onChange={handleInputNome}
+                                    ></input>
+
+                                </Sessao1>
+                                <Sessao2>
+                                    <label>Mensagem:</label>
+                                    <input
+                                        placeholder="Digite uma Mensagem"
+                                        value={inputMsg}
+                                        onChange={handleInputMsg}
+                                    />
+                                </Sessao2>
+                                <Sessao3>
+                                    <SendIcon onClick={enviarMensagem} />
+                                </Sessao3>
+                            </Form>
+                        </div>
+                    </Footer>
+
                 </Content>
-            <AsideDireita />
 
-            {/*  {listaDeMensagem} */}
+                <AsideDireita />
 
-        </Body>
+                {/*  {listaDeMensagem} */}
+
+            </Body>
+        </>
     )
 }

@@ -1,68 +1,99 @@
 import styled from "styled-components";
 
+export const Header = styled.header`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 
+  img {
+    max-width: 60px;
+  }
+
+  h1 {
+    font-size: 20px;
+    display: flex;
+    align-items: flex-end;
+    margin-left: -10px;
+  }
+`
 
 export const Body = styled.body`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    height: 100vh;
-   
+    height: 87vh;
+    font-family: 'Montserrat', sans-serif;
 `
 
 export const AsideEsquerda = styled.aside`
-    height: 100vh;
+    height: 100%;
+    background-color: orange;
 `
 
 export const Content = styled.div`
-    min-width: 42vw;
+    width: 100%;
     display: flex;
-    /* flex-direction: column; */
-   /*  justify-content: flex-start;
-    align-items: flex-end;
-    padding: 10px;
-    gap: 1%; */
-    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     overflow-y: auto;
     background-color: #E5DDD5;
     background-size:cover;
     background-position: center;
     background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
-`
+    padding: 10px 15px;
 
-export const MensagemLinha = styled.div`
-    margin-bottom: 10px;
-    display: flex;
-    
-`
-export const MensagemItem = styled.div`
-    
-`
-export const MensagemTexto = styled.div`
-    
+    div {
+        display: flex;
+    flex-direction: column;
+    }
 `
 
 export const Parte1Conteudo = styled.div`
-  display: flex;
-`
-   
-export const Parte2Conteudo = styled.div`
+  display: flex; 
  
-   
+`
+
+export const Footer = styled.div`
+    display: flex;
 `
 
 export const Form = styled.form`
-    min-width: 40vw;
+    width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    padding: 10px;
-    gap: 1%;
-    background-color: green;
 `
+//CardMensagem
+
+export const MensagemLinha = styled.div`
+    margin-bottom: 10px;
+    display: flex; 
+`
+export const MensagemItem = styled.div`
+    max-width: 90%;
+    background-color: #DCF8C6;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px #CCC;
+    display: flex;
+    padding: 5px;
+`
+
+export const MensagemTexto = styled.div`
+    display: flex;
+
+    p{
+    font-size: 14px;
+    margin: 5px;
+    }
+`
+
+//Input
 
 export const Sessao1 = styled.section`
     margin: 5px;
+    display: flex;
 
     label {
         //screen reader only
@@ -77,10 +108,10 @@ export const Sessao1 = styled.section`
     }
 
     input {
-        width: 7vw;
+        width: 5vw;
         padding: 10px;
-        border-radius: 7px;
-        border: none; 
+        border-radius: 20px;
+        border: none;
         :focus {
             box-shadow: 0 0 1em gold;
             outline: 0;
@@ -104,34 +135,37 @@ export const Sessao2 = styled.section`
     }
 
     input {
-        width: 23vw;
+        width: 19vw;
         padding: 10px;
-        border-radius: 7px;
+        border-radius: 20px;
         border: none;
         :focus {
             box-shadow: 0 0 1em gold;
             outline: 0;
         }
     }
- 
 `
 
 export const Sessao3 = styled.section`
-    button {
-    background-color: #e7e7e7;
-    margin: 5px;
-    padding: 20%;
-    border-radius: 7px;
-    border: none;
+    width: 40px;
+    height: 40px;
+    color: #919191;
     cursor: pointer;
-    font-weight: bold;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    background-color: #FFF;
+    border-radius: 50%;
     :hover {
-        background-color: #615f5f;
-        color: white;
-    }
+        color: #DCF8C6;
+        background-color: gray
     }
 `
 
 export const AsideDireita = styled.aside`
-    height: 100vh;
+    height: 100%;
+    background-color: orange;
 `
