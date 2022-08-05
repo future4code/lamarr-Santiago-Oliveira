@@ -53,7 +53,7 @@ const TelaInicial = () => {
     })
       .then((response) => {
         getProfileToChoose()
-        setProfiles([0].id)
+        setProfiles(profiles[0].id)
         alert("Swipe!")
         console.log(response.data)
       }).catch((erro) => {
