@@ -1,12 +1,13 @@
-import './App.css';
-import TelaInicial from './TelaInicial/TelaInicial';
-/* import TelaMatches from './TelaMatches/TelaMatches'; */
+import TelaInicial from './pages/TelaInicial/TelaInicial';
+import { GlobalStayle } from './GlobalStayle';
+
+
 
 function App() {
   return (
     <div>
+      <GlobalStayle />
       <TelaInicial />
-      {/* <TelaMatches /> */}
     </div>
   );
 }
