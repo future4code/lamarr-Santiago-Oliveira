@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from 'axios'
+import Header from '../../components/Header/Header'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import CloseIcon from '@mui/icons-material/Close';
 import { Container, Card, Footer, DivBotao, DivDescarte, DivMatch } from './style';
-import axios from 'axios';
-import Header from '../../components/Header/Header'
 
 
 
-const TelaInicial = () => {
+
+const TelaInicial = (props) => {
+  const { changePage } = props
+
   const [profiles, setProfiles] = useState([])
 
   const card = profiles.map((profile) => {
     return (
       <Card key={profile.id}>
         <img src={profile.photo} alt={profile.photo_alt} />
-        <div>
+        <div key={profile.id}>
           <span>{profile.name}, {profile.age} <p>{profile.bio}</p></span>
         </div>
       </Card>
@@ -40,21 +43,20 @@ const TelaInicial = () => {
   }
 
   //POST
-  /*  const headers = {
-     headers: {
-       "Content-Type": "application/json"
-     }
-   } */
+  const headers = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }
 
   const choosePerson = (id, choice) => {
-    axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/santiago-oliveira/choose-person`, /* headers, */ {
+    axios.post(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/santiago-oliveira/choose-person`, {
       "id": id,
       "choice": true
-    })
+    }, headers)
       .then((response) => {
         getProfileToChoose()
-        setProfiles(profiles[0].id)
-        alert("Swipe!")
+        setProfiles(profiles)
         console.log(response.data)
       }).catch((erro) => {
         console.log(erro.response.data)
@@ -63,16 +65,19 @@ const TelaInicial = () => {
   }
 
   return (
+
     <Container>
-      <Header />
+      <Header
+        changePage={changePage}
+      />
       {card}
       <Footer>
         <DivBotao>
           <DivDescarte>
-            <CloseIcon onClick={() => choosePerson([0].id, false)} />
+            <CloseIcon onClick={() => choosePerson(profiles[0].id, false)} />
           </DivDescarte>
           <DivMatch>
-            <FavoriteIcon onClick={() => choosePerson([0].id, true)} />
+            <FavoriteIcon onClick={() => choosePerson(profiles[0].id, true)} />
           </DivMatch>
         </DivBotao>
       </Footer>
