@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from 'react-router-dom'
+import { goToBack } from '../Rotas/Coordinator'
 
 const TripDetailsPage = () => {
+    const navigate = useNavigate()
 
     return (
         <>
@@ -13,7 +16,7 @@ const TripDetailsPage = () => {
                 <li>Data:</li>
             </ul>
 
-            <button>Voltar</button>
+            <button onClick={() => {goToBack(navigate)}}>Voltar</button>
 
             <p>Candidatos Pendentes</p>
             <ul>

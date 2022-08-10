@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'
-import { goToBack, goToCreateTripPage, goToLoginPage } from '../Rotas/Coordinator'
+import { goToBack, goToCreateTripPage, goToLoginPage, goToListTripsPageDetailsPage } from '../Rotas/Coordinator'
 
 const AdminHomePage = () => {
     const navigate = useNavigate()
@@ -13,7 +13,7 @@ const AdminHomePage = () => {
             <button onClick={() => { goToLoginPage(navigate) }}>Logout</button>
 
             <ul>
-                <li>Lista de viagens</li>
+                <button onClick={() => {goToListTripsPageDetailsPage(navigate)}}>Lista de viagens</button>
                 <button>Excluir Viagem</button>
             </ul>
         </div>
