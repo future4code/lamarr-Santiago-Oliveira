@@ -1,9 +1,6 @@
-import React from "react";
-import { useNavigate } from 'react-router-dom'
-import { goToListTripsPage, goToLoginPage } from '../Rotas/Coordinator'
 import styled from "styled-components";
 
-const Home = styled.div` 
+export const Home = styled.div` 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,22 +41,3 @@ const Home = styled.div`
         
     }
 `
-
-
-
-
-const HomePage = () => {
-    const navigate = useNavigate()
-
-    return (
-        <Home>
-            <h1>Labex</h1>
-            <div>
-                <button onClick={() => { goToListTripsPage(navigate) }}>Ver Viagens</button>
-                <button onClick={() => { goToLoginPage(navigate) }}>Área de Admin</button>
-            </div>
-        </Home>
-    )
-}
-
-export default HomePage

@@ -1,14 +1,15 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'
-import { goToBack, } from '../Rotas/Coordinator'
+import { goToBack, } from '../../Rotas/Coordinator'
+import { Botoes, Div, Form } from "./style";
 
 const CreateTripPage = () => {
     const navigate = useNavigate()
 
     return (
-        <>
+        <Div>
             <p>Criar nova viagem</p>
-            <form>
+            <Form>
                 <label>Nome</label>
                 <input type="nome" placeholder="Nome" />
                 <label>Planeta</label>
@@ -19,11 +20,13 @@ const CreateTripPage = () => {
                 <input type="text" placeholder="Descrição" />
                 <label>Duração</label>
                 <input type="number" placeholder="Duração" />
-            </form>
+            </Form>
 
-            <button onClick={() => { goToBack(navigate) }}>Voltar</button>
-            <button>Criar</button>
-        </>
+            <Botoes>
+                <button onClick={() => { goToBack(navigate) }}>Voltar</button>
+                <button>Criar</button>
+            </Botoes>
+        </Div>
     )
 }
 
