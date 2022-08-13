@@ -1,12 +1,86 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { BASE_URL } from "../constants/constants";
 import { goToBack } from '../Rotas/Coordinator'
 import axios from 'axios'
+import styled from "styled-components";
 
+const Div = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+
+    p {
+        font-size: 2rem;
+        color: #d2691e;
+        font-weight: bold;
+    }
+`
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 50vh;
+    background-color:#20b2aa;
+    box-shadow: 10px 5px 10px 5px #d2691e;
+    padding: 2rem; 
+
+    label {
+        //screen reader only
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        border: 0;
+    } 
+
+    input, select {
+        padding: 0.5rem;
+        border: none;
+        margin-bottom: 4%;
+        border-radius: 10px;
+        :focus {
+            box-shadow: 0 0 2em #d2691e;
+            outline: 0;
+        }
+    }
+`
+
+const Botoes = styled.div`
+     button {
+        width: 8rem;
+        margin-left: 2rem;
+        margin-top: 10px;
+        padding: 1rem;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        background-color: #2f4f4f;
+        color: white;
+        font-weight: bold;
+        box-shadow:0 5px 0 black;
+        :hover {
+            background-color:#2f4f4f;
+            box-shadow:0 5px 0 black;
+        }
+        :active {
+            position:relative;
+            top:5px;
+            box-shadow:none;
+        }
+        }
+        
+`
 
 const ApplicationFormPage = () => {
     const navigate = useNavigate()
+    const pathParams = useParams()
 
     const [dataApply, setDataApply] = useState("")
     const [inputNomeViagem, setInputNomeViagem] = useState("")
@@ -17,7 +91,6 @@ const ApplicationFormPage = () => {
     const [inputPais, setInputPais] = useState("")
 
     const body = {
-        "nameViagem": inputNomeViagem,
         "name": inputNome,
         "age": inputIdade,
         "applicationText": inputDescricao,
@@ -25,7 +98,7 @@ const ApplicationFormPage = () => {
         "country": inputPais
     }
     const applyTrips = () => {
-        axios.post(`${BASE_URL}trips/NoIFVcOiSgTKTIPVZwXS/apply/, ${body}`)
+        axios.post(`${BASE_URL}trips/${pathParams.id}/apply`, body)
             .then((response) => {
                 setDataApply(response.data)
                 alert("Inscrição concluída!")
@@ -40,30 +113,17 @@ const ApplicationFormPage = () => {
         setInputPais("")
     }
 
-
-    const postApplication = dataApply && dataApply.map((list) => {
-
-        return (
-            <ul key={list.id}>
-                <li>Nome: {list.name}</li>
-                <li>Profissão: {list.profession}</li>
-                <li>Idade: {list.age}</li>
-                <li>País: {list.country}</li>
-                <li>Texto de Candidatura: {list.applicationText}</li>
-            </ul>
-        )
-    })
-
     return (
-        <div>
+        <Div>
             <p>Inscreva-se para uma viagem</p>
-            <form>
+            <Form>
                 <label>Nome da Viagem</label>
                 <select
                     name="viagens"
                     id="viagens"
                     value={inputNomeViagem}
                     onChange={(e) => setInputNomeViagem(e.target.value)}>
+                    <option value="select" defaultValue="selected">Selecione uma viagem</option>
                     <option value="nome-viagem">Saturno</option>
                     <option value="nome-viagem">Marte</option>
                     <option value="nome-viagem">Plutão</option>
@@ -97,7 +157,8 @@ const ApplicationFormPage = () => {
                     id="paises"
                     value={inputPais}
                     onChange={(e) => setInputPais(e.target.value)}>
-                    <option value="Brasil" selected="selected">Brasil</option>
+                    <option value="Selecione" defaultValue="selected">Selecione seu país de origem</option>
+                    <option value="Brasil">Brasil</option>
                     <option value="Afeganistão">Afeganistão</option>
                     <option value="África do Sul">África do Sul</option>
                     <option value="Albânia">Albânia</option>
@@ -348,12 +409,12 @@ const ApplicationFormPage = () => {
                     <option value="Zimbabwe">Zimbabwe</option>
                     <option value="Zâmbia">Zâmbia</option>
                 </select>
-            </form>
-
-            <button onClick={() => { goToBack(navigate) }}>Voltar</button>
-            <button onClick={applyTrips} >Enviar</button>
-            {postApplication}
-        </div>
+            </Form>
+            <Botoes>
+                <button onClick={() => { goToBack(navigate) }}>Voltar</button>
+                <button onClick={applyTrips} >Enviar</button>
+            </Botoes>
+        </Div>
     )
 }
 

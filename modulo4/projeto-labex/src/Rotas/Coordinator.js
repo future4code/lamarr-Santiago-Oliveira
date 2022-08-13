@@ -8,7 +8,7 @@ export const goToListTripsPage = (navigate) => {
     navigate(`/trips/list`)
 }
 export const goToApplicationFormPage = (navigate) => {
-    navigate(`/trips/application`)
+    navigate(`/trips/application/NoIFVcOiSgTKTIPVZwXS`)
 }
 export const goToLoginPage = (navigate) => {
     navigate(`/login`)
