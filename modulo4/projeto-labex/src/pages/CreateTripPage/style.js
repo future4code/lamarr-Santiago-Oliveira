@@ -50,7 +50,7 @@ input, select {
 export const Botoes = styled.div`
  button {
     width: 8rem;
-    margin-left: 2rem;
+    margin-left: 6rem;
     margin-top: 10px;
     padding: 1rem;
     text-transform: uppercase;

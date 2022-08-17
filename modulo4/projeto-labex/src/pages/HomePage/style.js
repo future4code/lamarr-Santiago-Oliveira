@@ -21,6 +21,7 @@ export const Home = styled.div`
     button {
         width: 9rem;
         margin-left: 2rem;
+        margin-top: 1rem;
         padding: 1rem;
         text-transform: uppercase;
         border: none;

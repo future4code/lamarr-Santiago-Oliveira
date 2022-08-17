@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
 
 p {
     font-size: 2rem;
@@ -18,7 +18,7 @@ export const Form = styled.form`
 display: flex;
 flex-direction: column;
 width: 40%;
-height: 50vh;
+height: 60vh;
 background-color:#20b2aa;
 box-shadow: 10px 5px 10px 5px #d2691e;
 padding: 2rem; 
@@ -50,7 +50,7 @@ input, select {
 export const Botoes = styled.div`
  button {
     width: 8rem;
-    margin-left: 2rem;
+    margin-left: 6rem;
     margin-top: 10px;
     padding: 1rem;
     text-transform: uppercase;

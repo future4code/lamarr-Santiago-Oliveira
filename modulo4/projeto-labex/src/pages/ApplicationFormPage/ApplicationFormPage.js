@@ -1,91 +1,88 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate, useParams } from 'react-router-dom'
 import { BASE_URL } from "../../constants/constants";
 import { goToBack } from '../../Rotas/Coordinator'
 import axios from 'axios'
 import { Div, Form, Botoes } from './style';
+import { useForm } from '../../hooks/useForm'
 
 
 
 const ApplicationFormPage = () => {
     const navigate = useNavigate()
     const pathParams = useParams()
+    const [form, onChange, clear] = useForm(
+        {
+            name: "",
+            age: "",
+            applicationText: "",
+            profession: "",
+            country: ""
+        }
+    )
 
-    const [dataApply, setDataApply] = useState("")
-    const [inputNomeViagem, setInputNomeViagem] = useState("")
-    const [inputNome, setInputNome] = useState("")
-    const [inputIdade, setInputIdade] = useState("")
-    const [inputDescricao, setInputDescricao] = useState("")
-    const [inputProfissao, setInputProfissao] = useState("")
-    const [inputPais, setInputPais] = useState("")
+    const applyTrips = (event) => {
+        event.preventDefault()
 
-    const body = {
-        "name": inputNome,
-        "age": inputIdade,
-        "applicationText": inputDescricao,
-        "profession": inputProfissao,
-        "country": inputPais
-    }
-    const applyTrips = () => {
-        axios.post(`${BASE_URL}trips/${pathParams.id}/apply`, body)
+        axios.post(`${BASE_URL}trips/${pathParams.id}/apply`, form)
             .then((response) => {
-                setDataApply(response.data)
+                console.log((response));
                 alert("Inscrição concluída!")
             }).catch((erro) => {
+                console.log(erro.message);
                 alert("Erro ao se cadastrar!")
             })
-        setInputNomeViagem("")
-        setInputNome("")
-        setInputIdade("")
-        setInputDescricao("")
-        setInputProfissao("")
-        setInputPais("")
+
+        clear()
     }
 
     return (
         <Div>
             <p>Inscreva-se para uma viagem</p>
-            <Form>
-                <label>Nome da Viagem</label>
-                <select
-                    name="viagens"
-                    id="viagens"
-                    value={inputNomeViagem}
-                    onChange={(e) => setInputNomeViagem(e.target.value)}>
-                    <option value="select" defaultValue="selected">Selecione uma viagem</option>
-                    <option value="nome-viagem">Saturno</option>
-                    <option value="nome-viagem">Marte</option>
-                    <option value="nome-viagem">Plutão</option>
-                </select>
-                <label>Nome</label>
+            <Form onSubmit={applyTrips}>
+                <label htmlFor="name">Nome</label>
                 <input
+                    name="name"
+                    id="name"
                     type="nome"
                     placeholder="Nome completo"
-                    value={inputNome}
-                    onChange={(e) => setInputNome(e.target.value)} />
-                <label>Idade</label>
+                    value={form.name}
+                    onChange={onChange}
+                    required />
+                <label htmlFor="age">Idade</label>
                 <input
+                    name="age"
+                    id="age"
                     type="number"
                     placeholder="Idade"
-                    value={inputIdade}
-                    onChange={(e) => setInputIdade(e.target.value)} />
-                <label>Porque sou um bom candidato?</label>
+                    value={form.age}
+                    onChange={onChange}
+                    required />
+                <label htmlFor="applicationText">Porque sou um bom candidato?</label>
                 <input
+                    name="applicationText"
+                    id="applicationText"
                     type="text"
                     placeholder="Porque sou um bom candidato?"
-                    value={inputDescricao} onChange={(e) => setInputDescricao(e.target.value)} />
-                <label>Profissão</label>
+                    value={form.applicationText}
+                    onChange={onChange}
+                    required />
+                <label htmlFor="profession">Profissão</label>
                 <input
+                    name="profession"
+                    id="profession"
                     type="text"
                     placeholder="Profissão"
-                    value={inputProfissao}
-                    onChange={(e) => setInputProfissao(e.target.value)} />
-                <label>País</label>
+                    value={form.profession}
+                    onChange={onChange}
+                    required />
+                <label htmlFor="country">País</label>
                 <select
-                    name="paises"
-                    id="paises"
-                    value={inputPais}
-                    onChange={(e) => setInputPais(e.target.value)}>
+                    name="country"
+                    id="country"
+                    value={form.country}
+                    onChange={onChange}
+                    required >
                     <option value="Selecione" defaultValue="selected">Selecione seu país de origem</option>
                     <option value="Brasil">Brasil</option>
                     <option value="Afeganistão">Afeganistão</option>
@@ -338,11 +335,11 @@ const ApplicationFormPage = () => {
                     <option value="Zimbabwe">Zimbabwe</option>
                     <option value="Zâmbia">Zâmbia</option>
                 </select>
+                <Botoes>
+                    <button onClick={() => { goToBack(navigate) }}>Voltar</button>
+                    <button>Enviar</button>
+                </Botoes>
             </Form>
-            <Botoes>
-                <button onClick={() => { goToBack(navigate) }}>Voltar</button>
-                <button onClick={applyTrips} >Enviar</button>
-            </Botoes>
         </Div>
     )
 }
