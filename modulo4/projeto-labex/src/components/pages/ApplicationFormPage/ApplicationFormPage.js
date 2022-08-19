@@ -61,6 +61,7 @@ const ApplicationFormPage = () => {
                     value={form.age}
                     onChange={onChange}
                     min={18}
+                    title="Permitido apenas maiores de 18"
                     required />
                 <label htmlFor="applicationText">Porque sou um bom candidato?</label>
                 <input

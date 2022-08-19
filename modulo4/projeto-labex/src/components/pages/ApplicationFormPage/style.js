@@ -15,13 +15,12 @@ p {
 `
 
 export const Form = styled.form`
-display: flex;
-flex-direction: column;
-width: 40%;
-height: 65vh;
-background-color:#20b2aa;
-box-shadow: 10px 5px 10px 5px #d2691e;
-padding: 2rem; 
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background-color:#20b2aa;
+    box-shadow: 10px 5px 10px 5px #d2691e;
+    padding: 2rem; 
 
 label {
     //screen reader only
@@ -34,6 +33,10 @@ label {
     clip: rect(0,0,0,0);
     border: 0;
 } 
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
 
 input, select {
     padding: 0.5rem;
@@ -49,7 +52,6 @@ input, select {
 
 export const Botoes = styled.div`
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;

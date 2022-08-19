@@ -23,7 +23,7 @@ const CreateTripPage = () => {
     const token = localStorage.getItem("token")
     const headers = {
         headers: {
-            "Content-Type": "application/json",
+
             auth: token
         }
     }
@@ -31,7 +31,7 @@ const CreateTripPage = () => {
     const createTrip = (event) => {
         event.preventDefault()
 
-        axios.post(`${BASE_URL}trips`, headers, form)
+        axios.post(`${BASE_URL}trips`, form, headers)
             .then((response) => {
                 alert("Viagem criada!")
                 console.log(response.data);
@@ -95,6 +95,8 @@ const CreateTripPage = () => {
                     placeholder="Descrição"
                     value={form.description}
                     onChange={onChange}
+                    pattern="^.{30,}$"
+                    title="Mínimo 30 caracteres"
                     required />
                 <label htmlFor="durationInDays">Duração</label>
                 <input
@@ -105,6 +107,7 @@ const CreateTripPage = () => {
                     value={form.durationInDays}
                     onChange={onChange}
                     min={50}
+                    title="Mínimo 50 dias"
                     required />
                 <Botoes>
                     <button onClick={() => { goToBack(navigate) }}>Voltar</button>

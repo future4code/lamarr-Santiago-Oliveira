@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
 
 p {
     font-size: 2rem;
@@ -15,13 +15,13 @@ p {
 `
 
 export const Form = styled.form`
-display: flex;
-flex-direction: column;
-width: 40%;
-height: 60vh;
-background-color:#20b2aa;
-box-shadow: 10px 5px 10px 5px #d2691e;
-padding: 2rem; 
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 60vh;
+    background-color:#20b2aa;
+    box-shadow: 10px 5px 10px 5px #d2691e;
+    padding: 2rem; 
 
 label {
     //screen reader only
@@ -35,6 +35,10 @@ label {
     border: 0;
 } 
 
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
 input, select {
     padding: 0.5rem;
     border: none;
@@ -44,6 +48,8 @@ input, select {
         box-shadow: 0 0 2em #d2691e;
         outline: 0;
     }
+
+
 }
 `
 

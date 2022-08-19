@@ -18,6 +18,7 @@ const LoginPage = () => {
                 localStorage.setItem("token", response.data.token)
                 navigate("/admin/trips/list")
             }).catch((error) => {
+                alert("Login inválido! Usuário ou senha incorreto")
                 console.log(error.message);
             })
 
