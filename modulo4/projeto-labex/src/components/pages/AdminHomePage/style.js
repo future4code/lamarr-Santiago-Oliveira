@@ -17,6 +17,10 @@ export const DivPrincipal = styled.div`
 
 
 export const Sessao = styled.section`
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;;
+
     button {
         width: 8rem;
         margin-left: 2rem;

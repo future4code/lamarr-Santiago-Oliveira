@@ -18,7 +18,7 @@ export const Form = styled.form`
 display: flex;
 flex-direction: column;
 width: 40%;
-height: 50vh;
+height: 60vh;
 background-color:#20b2aa;
 box-shadow: 10px 5px 10px 5px #d2691e;
 padding: 2rem; 
@@ -48,9 +48,14 @@ input, select {
 `
 
 export const Botoes = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+
  button {
     width: 8rem;
-    margin-left: 6rem;
     margin-top: 10px;
     padding: 1rem;
     text-transform: uppercase;

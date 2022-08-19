@@ -5,9 +5,12 @@ import axios from 'axios'
 import { useForm } from "../../hooks/useForm";
 import { goToBack, } from '../../Rotas/Coordinator'
 import { Botoes, Div, Form } from "./style";
+import useProtectedPage from "../../hooks/useProtectedPage";
 
 const CreateTripPage = () => {
+    useProtectedPage()
     const navigate = useNavigate()
+
     const [form, onChange, clear] = useForm({
         name: "",
         planet: "",
@@ -16,13 +19,22 @@ const CreateTripPage = () => {
         durationInDays: ""
     })
 
+
+    const token = localStorage.getItem("token")
+    const headers = {
+        headers: {
+            "Content-Type": "application/json",
+            auth: token
+        }
+    }
+
     const createTrip = (event) => {
         event.preventDefault()
 
-        axios.post(`${BASE_URL}trips`, form)
+        axios.post(`${BASE_URL}trips`, headers, form)
             .then((response) => {
                 alert("Viagem criada!")
-                console.log(response);
+                console.log(response.data);
             }).catch((erro) => {
                 alert("Erro ao criar viagem!")
                 console.log(erro.message);
@@ -43,6 +55,8 @@ const CreateTripPage = () => {
                     placeholder="Nome"
                     value={form.name}
                     onChange={onChange}
+                    pattern="^.{5,}$"
+                    title="Mínimo 5 caracteres"
                     required />
                 <label htmlFor="planet">Planetas</label>
                 <select
@@ -66,10 +80,12 @@ const CreateTripPage = () => {
                 <input
                     name="date"
                     id="date"
-                    type="data"
+                    type="text"
                     placeholder="xx/xx/xxxx"
                     value={form.date}
                     onChange={onChange}
+                    pattern="[0-9]{2}[/][0-9]{2}[/][0-9]{4}"
+                    title="Precisa ser uma data no futuro e formato MM/DD/AAAA (mês/dia/ano com 04 dígitos)"
                     required />
                 <label htmlFor="description">Descrição</label>
                 <input
@@ -88,6 +104,7 @@ const CreateTripPage = () => {
                     placeholder="Duração"
                     value={form.durationInDays}
                     onChange={onChange}
+                    min={50}
                     required />
                 <Botoes>
                     <button onClick={() => { goToBack(navigate) }}>Voltar</button>

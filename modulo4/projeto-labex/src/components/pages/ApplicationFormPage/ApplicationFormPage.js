@@ -17,7 +17,8 @@ const ApplicationFormPage = () => {
             age: "",
             applicationText: "",
             profession: "",
-            country: ""
+            country: "",
+            nomeViagem: ""
         }
     )
 
@@ -48,6 +49,8 @@ const ApplicationFormPage = () => {
                     placeholder="Nome completo"
                     value={form.name}
                     onChange={onChange}
+                    pattern="^.{3,}$"
+                    title="Mínimo 3 letras"
                     required />
                 <label htmlFor="age">Idade</label>
                 <input
@@ -57,6 +60,7 @@ const ApplicationFormPage = () => {
                     placeholder="Idade"
                     value={form.age}
                     onChange={onChange}
+                    min={18}
                     required />
                 <label htmlFor="applicationText">Porque sou um bom candidato?</label>
                 <input
@@ -66,6 +70,8 @@ const ApplicationFormPage = () => {
                     placeholder="Porque sou um bom candidato?"
                     value={form.applicationText}
                     onChange={onChange}
+                    pattern="^.{30,}$"
+                    title="Mínimo 30 caracteres"
                     required />
                 <label htmlFor="profession">Profissão</label>
                 <input
@@ -75,6 +81,8 @@ const ApplicationFormPage = () => {
                     placeholder="Profissão"
                     value={form.profession}
                     onChange={onChange}
+                    pattern="^.{10,}$"
+                    title="Mínimo 10 caracteres"
                     required />
                 <label htmlFor="country">País</label>
                 <select
@@ -334,6 +342,24 @@ const ApplicationFormPage = () => {
                     <option value="Wallis e Futuna">Wallis e Futuna</option>
                     <option value="Zimbabwe">Zimbabwe</option>
                     <option value="Zâmbia">Zâmbia</option>
+                </select>
+                <label htmlFor="nomeViagem">Nome da viagem - Planeta</label>
+                <select
+                    name="nomeViagem"
+                    id="nomeViagem"
+                    value={form.nomeViagem}
+                    onChange={onChange}
+                    required>
+                    <option value="select" defaultValue="selected">Selecione uma viagem</option>
+                    <option value="Mercúrio">Mercúrio</option>
+                    <option value="Vênus">Vênus</option>
+                    <option value="Terra">Terra</option>
+                    <option value="Marte">Marte</option>
+                    <option value="Júpiter">Júpiter</option>
+                    <option value="Saturno">Saturno</option>
+                    <option value="Urano">Urano</option>
+                    <option value="Netuno">Netuno</option>
+                    <option value="Plutão">Plutão</option>
                 </select>
                 <Botoes>
                     <button onClick={() => { goToBack(navigate) }}>Voltar</button>

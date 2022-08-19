@@ -1,9 +1,11 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'
+import useProtectedPage from "../../hooks/useProtectedPage";
 import { goToBack } from '../../Rotas/Coordinator'
 import { DivPrincipal, Sessao, ListaDeViagem } from './style'
 
 const TripDetailsPage = () => {
+    useProtectedPage()
     const navigate = useNavigate()
 
     return (

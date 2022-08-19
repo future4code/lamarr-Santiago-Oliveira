@@ -19,7 +19,7 @@ const Rotas = () => {
                 <Route path="/trips/application/:id" element={<ApplicationFormPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/admin/trips/list" element={<AdminHomePage />} />
-                <Route path="/admin/trips/create" element={<CreateTripPage />} />
+                <Route path="/admin/trips/create/" element={<CreateTripPage />} />
                 <Route path="/admin/trips/:id" element={<TripDetailsPage />} />
             </Routes>
         </BrowserRouter>

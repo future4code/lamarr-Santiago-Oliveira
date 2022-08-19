@@ -11,7 +11,6 @@ const ListTripsPage = () => {
     const [dataListaDeViagens, isLoadingListaViagens, erroListaViagens] = useRequestData(
         `${BASE_URL}trips`
     )
-    console.log(dataListaDeViagens);
 
     const listaDeViagens = dataListaDeViagens && dataListaDeViagens.trips.map((list) => {
         return (

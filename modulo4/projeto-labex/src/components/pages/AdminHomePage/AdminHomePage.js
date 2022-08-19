@@ -1,10 +1,12 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom'
+import useProtectedPage from "../../hooks/useProtectedPage";
 import { goToBack, goToCreateTripPage, goToLoginPage, goToListTripsPageDetailsPage } from '../../Rotas/Coordinator'
 import { DivPrincipal, Sessao, ListaDeViagem, Card } from './style'
 
 const AdminHomePage = () => {
     const navigate = useNavigate()
+    useProtectedPage()
 
     return (
         <DivPrincipal>
