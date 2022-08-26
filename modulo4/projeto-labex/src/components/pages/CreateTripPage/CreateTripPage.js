@@ -34,7 +34,7 @@ const CreateTripPage = () => {
         axios.post(`${BASE_URL}trips`, form, headers)
             .then((response) => {
                 alert("Viagem criada!")
-                console.log(response.data);
+                console.log(response.data.trip);
             }).catch((erro) => {
                 alert("Erro ao criar viagem!")
                 console.log(erro.message);

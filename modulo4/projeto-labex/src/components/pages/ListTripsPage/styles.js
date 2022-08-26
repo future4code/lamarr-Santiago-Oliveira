@@ -53,7 +53,7 @@ export const Lista = styled.ul`
     flex-direction: column;
     justify-content: center;
     width: 60%;
-    height: 30vh;
+    padding: 10px;
     background-color:#20b2aa;
     box-shadow: 10px 5px 10px 5px #d2691e;
 

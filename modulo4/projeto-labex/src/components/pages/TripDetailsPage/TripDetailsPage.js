@@ -10,7 +10,7 @@ const TripDetailsPage = () => {
     useProtectedPage()
     const navigate = useNavigate()
     const pathParams = useParams()
-
+    console.log(pathParams);
 
     const token = localStorage.getItem("token")
     const headers = {
@@ -23,8 +23,10 @@ const TripDetailsPage = () => {
     const [detailsViagens, isLoadingDetailsViagens, erroDetailsViagens] = useRequestData(
         `${BASE_URL}trip/${pathParams.id}`, headers
     )
+    console.log(detailsViagens);
+    console.log(localStorage);
 
-    const listDetailsDeViagens = detailsViagens && detailsViagens.trip.map((list) => {
+    const listDetailsDeViagens = detailsViagens && detailsViagens.map((list) => {
         return (
             <ul key={list.id}>
                 <li><b>Nome:</b> {list.name}</li>
@@ -36,6 +38,13 @@ const TripDetailsPage = () => {
         )
     })
 
+    const nomeCandidato = detailsViagens && detailsViagens.trips.map((list) => {
+        return (
+            <ul key={list.id}>
+                <li><b>Nome:</b> {list.name}</li>
+            </ul>
+        )
+    })
 
     return (
         <DivPrincipal>
@@ -44,9 +53,9 @@ const TripDetailsPage = () => {
             <ListaDeViagem>
                 {!isLoadingDetailsViagens && listDetailsDeViagens}
             </ListaDeViagem>
-            {!isLoadingDetailsViagens && detailsViagens
+            {/*  {!isLoadingDetailsViagens && detailsViagens
                 && detailsViagens.length === 0 && "Não há viagens disponíveis"}
-            {!isLoadingDetailsViagens && !detailsViagens && erroDetailsViagens}
+            {!isLoadingDetailsViagens && !detailsViagens && erroDetailsViagens} */}
             <Sessao>
                 <button onClick={() => { goToBack(navigate) }}>Voltar</button>
             </Sessao>
@@ -55,7 +64,7 @@ const TripDetailsPage = () => {
 
             <ListaDeViagem>
                 <ul>
-                    <li>Candidatos</li>
+                    <li>{nomeCandidato}</li>
                 </ul>
             </ListaDeViagem>
             <Sessao>

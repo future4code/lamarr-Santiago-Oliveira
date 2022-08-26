@@ -79,10 +79,16 @@ export const Card = styled.ul`
     height: 30vh;
     background-color:#20b2aa;
     box-shadow: 10px 5px 10px 5px #d2691e;
+    margin: 5px 0 0 5px;
 
     li {
         list-style: none;
         margin: 5px;
         color: white;
     }
+
+`
+
+export const Botao = styled.button`
+    margin-bottom: 10px;
 `

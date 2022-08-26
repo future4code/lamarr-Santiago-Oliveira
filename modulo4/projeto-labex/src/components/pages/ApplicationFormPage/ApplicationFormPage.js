@@ -29,8 +29,8 @@ const ApplicationFormPage = () => {
             .then((response) => {
                 console.log((response));
                 alert("Inscrição concluída!")
-            }).catch((erro) => {
-                console.log(erro.message);
+            }).catch((error) => {
+                console.log(error.message);
                 alert("Erro ao se cadastrar!")
             })
 
