@@ -18,13 +18,22 @@ const clientes = [
 ]
 
 const cadastraCliente = (id, nome) => {
-    const novoCliente = {}
+    let novoCliente = { id, nome }
+
     if (clientes.id === id) {
-        return "Id já existe"
-    } else {
+        throw "Erro. Parâmetro inválido ('id já existe')."
+    } if (typeof clientes.id === "string") {
+        throw "Erro. Parâmetro inválido ('id')."
+    }/*  if (typeof clientes.nome !== "string") {
+        throw "Erro. Parâmetro inválido ('nome')."
+    } */
+
+
+    else {
         return clientes.push(novoCliente)
     }
 }
 
-console.log(cadastraCliente({ id: 5, nome: "Ciclana" }))
-
+console.log(cadastraCliente(5, "ciclana"))
+console.log(cadastraCliente(5, "ciclana"))
+console.log(clientes);
