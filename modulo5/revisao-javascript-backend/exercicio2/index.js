@@ -17,6 +17,10 @@ const clientes = [
     }
 ]
 
+
+
+//tentar map e filter
+
 const cadastraCliente = (id, nome) => {
     let novoCliente = { id, nome }
 
@@ -34,6 +38,6 @@ const cadastraCliente = (id, nome) => {
     }
 }
 
-console.log(cadastraCliente(5, "ciclana"))
-console.log(cadastraCliente(5, "ciclana"))
+console.log(cadastraCliente(5, "Ciclana"))
+console.log(cadastraCliente(5, "Ciclana"))
 console.log(clientes);

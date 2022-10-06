@@ -17,9 +17,7 @@ const converteTemperatura = (grau, escala) => {
         return grauConvertidoK = grau + 273.15
 
     }
-
 }
-
 
 console.log(converteTemperatura(30, "F"));
 console.log(converteTemperatura(30, "K"));
