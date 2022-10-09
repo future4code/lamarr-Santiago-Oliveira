@@ -9,6 +9,9 @@ const contas = [
     }
 ]
 
-const login = () => {
-
+const login = (email, senha) => {
+    return contas.push({ email, senha })
 }
+
+console.log(login("labenu@gmail.com", "L1234u@"));
+console.log(contas);
