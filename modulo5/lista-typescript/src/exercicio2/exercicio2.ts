@@ -1,4 +1,4 @@
-const imprimiTipoVariavel = (nome: string): string => {
+const imprimiTipoVariavel = (nome: any): any => {
   return typeof nome;
 };
 

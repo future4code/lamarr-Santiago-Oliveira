@@ -21,8 +21,17 @@ const colaboradores: Pessoas[] = [
   { nome: "Paola", salario: 3500, setor: "marketing", presencial: true },
 ];
 
-const apenasPessoasSetorMarketingPresencial = (colaboradores: Pessoas[]) => {
-  const pessoasFiltradas = colaboradores.filter((colaborador) => {
-    /*  return colaboradores.setor === "marketing"; */
-  });
+const apenasPessoasSetorMarketingPresencial = (
+  colaboradores: Pessoas[]
+): Pessoas[] => {
+  const pessoasFiltradas: Pessoas[] = colaboradores
+    .filter((colaborador) => {
+      return colaborador.setor === "marketing";
+    })
+    .filter((colaborador) => {
+      return colaborador.presencial === true;
+    });
+  return pessoasFiltradas;
 };
+
+console.table(apenasPessoasSetorMarketingPresencial(colaboradores));

@@ -40,8 +40,12 @@ const retornaInfoOrganizadas = (
   genero: GENERO,
   pontuacaoSite?: number
 ) => {
-  const type: Filme = catalogoDeFilmes[2];
-  return type;
+  return {
+    nome: nome,
+    anoLacamento: anoLacamento,
+    genero: genero,
+    pontuacaoSite: pontuacaoSite,
+  };
 };
 
-console.log(retornaInfoOrganizadas("Rua do Medo", 2021, GENERO.TERROR));
+console.table(retornaInfoOrganizadas("Rua do Medo", 2021, GENERO.TERROR, 80));
