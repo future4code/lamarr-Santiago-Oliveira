@@ -5,3 +5,10 @@ export type Users = {
   email: string;
   website: string;
 };
+
+export type BuscaPost = {
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
+};
