@@ -18,24 +18,35 @@ app.get("/users", (req: Request, res: Response) => {
   const listUsers = users.map((user) => {
     return user;
   });
-  console.log(listUsers);
   res.status(200).send(listUsers);
 });
 
-app.post("/post", (req: Request, res: Response) => {
+app.get("/posts", (req: Request, res: Response) => {
   const listPosts = posts.map((post) => {
     return post;
   });
-  console.log(listPosts);
   res.status(200).send(listPosts);
 });
 
-app.post("/post:id", (req: Request, res: Response) => {
-  const postsUsuario = posts.filter((user) => {
-    return user.userId;
+app.get("/posts/:id", (req: Request, res: Response) => {
+  const userId = Number(req.params.id);
+
+  if (!userId) {
+    res.status(400).send("Insira um id");
+  }
+
+  const postsUsuario = posts.find((user) => {
+    return user.id === userId;
   });
-  console.log(postsUsuario);
   res.status(200).send(postsUsuario);
+  /*  if (postsUsuario) {
+    const listPosts = postsUsuario.posts.map((post) => {
+      return post;
+    });
+    res.status(200).send(listPosts);
+  } else {
+    res.status(400).send("Não foi localizado usuário para o id informado");
+  } */
 });
 
 app.listen(3003, () => {
