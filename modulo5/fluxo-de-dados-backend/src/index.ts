@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import { products } from "./data";
 import { TProduct } from "./type";
+import { isStringLiteral } from "typescript";
 
 const app = express();
 
@@ -19,6 +20,48 @@ app.post("/products", (req: Request, res: Response) => {
   const name = req.body.name;
   const price = req.body.price;
 
+  /*   try {
+    if (!name) {
+      const erro = new Error("O nome do produto não foi informado!");
+      erro.name = "dataProductNotFound";
+      throw erro;
+    }
+    if (!price) {
+      const erro = new Error("O preço do produto não foi informado!");
+      erro.name = "dataProductNotFound";
+      throw erro;
+    }
+    if (typeof name !== "string") {
+      const erro = new Error("O nome precisa ser uma string");
+      erro.name = "Tipo Inválido";
+      throw erro;
+    }
+    if (typeof price !== typeof Number) {
+      const erro = new Error("O preço precisa ser um número");
+      erro.name = "Tipo Inválido";
+      throw erro;
+    }
+    if (price <= 0) {
+      const erro = new Error("O preço precisa ser superior a 0");
+      erro.name = "Valor Inválido";
+      throw erro;
+    }
+  } catch (e: any) {
+    switch (e.name) {
+      case "dataProductNotFound":
+        res.status(422).send(e.message);
+        break;
+      case "Tipo Inválido":
+        res.status(422).send(e.message);
+        break;
+      case "Valor Inválido":
+        res.status(422).send(e.message);
+        break;
+      default:
+        res.status(500).send(e.message);
+    }
+  } */
+
   const newProduct: TProduct = {
     id: Date.now().toString(),
     name,
@@ -31,11 +74,11 @@ app.post("/products", (req: Request, res: Response) => {
 
 //---------------------Exercício 5----------------------------
 app.get("/products", (req: Request, res: Response) => {
-  const showProduct = products.map((prod) => {
+  const allProduct = products.map((prod) => {
     return prod;
   });
 
-  res.status(200).send(showProduct);
+  res.status(200).send(allProduct);
 });
 
 //---------------------Exercício 6----------------------------
