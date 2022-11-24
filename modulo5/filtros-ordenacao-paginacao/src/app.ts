@@ -16,7 +16,3 @@ const server = app.listen(process.env.PORT || 3003, () => {
     console.error(`Failure upon starting server.`);
   }
 });
-
-/* app.listen(3003, () => {
-  console.log("Server is running in http://localhost:3003");
-}); */
