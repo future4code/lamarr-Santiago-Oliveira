@@ -13,8 +13,8 @@ export const getOrderUsers = async (
     let sort = req.query.sort as string;
     let order = req.query.order as string;
 
-    if (!sort) {
-      sort = "name";
+    if (!sort && !order) {
+      sort = "email";
     }
 
     if (sort !== "name" && sort !== "type") {
@@ -26,6 +26,10 @@ export const getOrderUsers = async (
       order.toUpperCase() !== "ASC" &&
       order.toUpperCase() !== "DESC"
     ) {
+      order = "ASC";
+    }
+
+    if (!order) {
       order = "ASC";
     }
 
