@@ -1,0 +1,16 @@
+GET https://viacep.com.br/ws/07915000/json
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/users/create
+Content-Type: application/json
+
+{
+  "name": "Santiago Oliveira",
+  "nickname": "San",
+  "email": "sandev@naruto.com",
+  "zipcode": "07915000"
+}
+
+###
