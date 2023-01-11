@@ -1,0 +1,42 @@
+###
+GET http://localhost:3003/ping
+
+### create a new client
+POST http://localhost:3003/client
+Content-Type: application/json
+
+{
+    "name": "Kinha"
+}
+
+### return all clients
+GET http://localhost:3003/clients
+
+### return all products
+GET http://localhost:3003/products
+
+### return stock
+GET http://localhost:3003/stock
+
+### create order
+POST http://localhost:3003/order
+Content-Type: application/json
+
+{
+    "fk_client": 1,
+    "delivery_date":"2023-01-04",
+    "products":[
+        {
+            "id":1,
+            "qty":10
+        },
+        {
+            "id":2,
+            "qty":10
+        },
+        {
+            "id":3,
+            "qty":10
+        }
+    ]
+}
