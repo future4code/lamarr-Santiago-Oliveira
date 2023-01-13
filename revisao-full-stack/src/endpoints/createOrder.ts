@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { connection } from "../database/connections";
-import { TProduct } from "../models/products";
+import { TProduct } from "../models/Products";
 
 export const createOrder = async (req: Request, res: Response) => {
   let errorCode = 400;
@@ -17,30 +17,29 @@ export const createOrder = async (req: Request, res: Response) => {
 
     //verificar stock
     //get stock
+
     const idsProducts = products.map((product) => product.id);
     const stockProducts = await connection
       .select("qty_stock")
       .from("Case_Products")
-      .where("id", idsProducts);
+      .whereIn("id", idsProducts);
 
     for (let i = 0; i < products.length; i++) {
       if (products[i].qty > stockProducts[i].qty_stock) {
-        throw new Error("Estoque indisponível!");
+        throw new Error("Estoque_indidponivel");
       }
     }
 
     //fazer pedido atualizar estoque
     await products.forEach(async (product) => {
-      //adiciona registro
-
+      //adicionba registro
       await connection("Case_Orders").insert({
-        order_date: new Date().toISOString().slice(0, 10),
+        order_data: new Date().toISOString().slice(0, 10),
         delivery_date,
         qty: product.qty,
         fk_client,
         fk_product: product.id,
       });
-
       //get stock
       const getStock = await connection
         .select("qty_stock")
@@ -54,7 +53,8 @@ export const createOrder = async (req: Request, res: Response) => {
         .where({ id: product.id })
         .update({ qty_stock: stockAtual - product.qty });
     });
-    res.status(201).send("Pedido criado com sucesso!");
+
+    res.status(200).send("Pedido criado com sucesso!!");
   } catch (error: any) {
     res.status(errorCode).send({ message: error.message });
   }
