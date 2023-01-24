@@ -1,0 +1,23 @@
+###
+GET http://localhost:3003/user/getAll
+
+###
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "Santiago",
+    "email": "sant@email.com",
+    "password": "23432535"
+}
+
+###
+POST http://localhost:3003/movie/create
+Content-Type: application/json
+
+{
+    "title": "O rei Leão",
+    "description": "Desenho animado.",
+    "duration_in_minutes": 117,
+    "year_of_release": 1994
+}
