@@ -1,0 +1,26 @@
+### Users
+GET http://localhost:3003/user/getAll
+
+###
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "Kinha",
+    "email": "kinha@email.com",
+    "password": "23432535"
+}
+
+### Movies
+GET http://localhost:3003/movie/getAll
+
+###
+POST http://localhost:3003/movie/create
+Content-Type: application/json
+
+{
+    "title": "O rei Leão IIII",
+    "description": "Desenho animado parte IIII.",
+    "duration_in_minutes": 120,
+    "year_of_release": 2005
+}
