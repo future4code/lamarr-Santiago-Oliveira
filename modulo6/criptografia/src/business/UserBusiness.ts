@@ -45,7 +45,7 @@ export class UserBusiness {
         name,
         nickname,
         email,
-        password:hashPassword
+        password: hashPassword
       };
    
       await userDatabase.insertUser(user);
