@@ -1,0 +1,35 @@
+GET http://localhost:3003/user/getUserData
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmODVlNjI4LWQzYjYtNDU3Ny1hMTAyLWY0ZjZjOWVkNTM2MSIsImlhdCI6MTY3NTM4MjYwNCwiZXhwIjoxNjc1Mzg2MjA0fQ.ik_zilc0pxfLn8YHHmsLxbHdc6KoY3qZQRr0mg055XE
+
+###
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "Norman", 
+   "nickname": "Green", 
+   "email": "osbourne@parker.com" ,
+   "password": "iha"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "osbourne@parker.com" ,
+   "password": "ihatepeter"
+}
+###
+
+PUT http://localhost:3003/user/edit
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZmODVlNjI4LWQzYjYtNDU3Ny1hMTAyLWY0ZjZjOWVkNTM2MSIsImlhdCI6MTY3NTM3ODg4NywiZXhwIjoxNjc1MzgyNDg3fQ.ubIRu1HuAXaBsn9oEhw7z1ub4R5EdEOegewjVbzvwrE
+Content-Type: application/json
+
+{
+   "name": "Harry Osbourne", 
+   "nickname": "Lasquita"
+}
