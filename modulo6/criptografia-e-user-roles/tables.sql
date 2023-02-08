@@ -26,4 +26,3 @@ CREATE TABLE IF NOT EXISTS Auth_assignees (
     FOREIGN KEY (assignee_id) REFERENCES Auth_users(id)
 );
 
-ALTER TABLE Auth_users ADD COLUMN role VARCHAR(255) DEFAULT "normal"

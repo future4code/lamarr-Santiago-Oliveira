@@ -5,11 +5,12 @@ import { BaseDatabase } from "./BaseDatabase";
 export class UserDatabase extends BaseDatabase {
   public findUser = async (email: string) => {
     try {
-      const result = await UserDatabase.connection
+  
+      const result = await UserDatabase.connection("Auth_users")
         .select()
-        .where({ email })
-        .from("Auth_users");
+        .where({email});
 
+      
       return result[0];
     } catch (error: any) {
       throw new CustomError(400, error.message);
@@ -43,12 +44,5 @@ export class UserDatabase extends BaseDatabase {
     }
   };
 
-  public getUserById = async (id: string): Promise<any> => {
-    const result = await UserDatabase.connection
-      .select("*")
-      .from("Auth_users")
-      .where({ id });
-
-    return result[0];
-  };
+ 
 }

@@ -1,39 +1,30 @@
-import { HashManager } from "./../services/HashManager";
 import { UserDatabase } from "../data/UserDatabase";
-import {
-  CustomError,
-  InvalidEmail,
-  InvalidName,
-  InvalidRole,
-  InvalidPassword,
-  Unauthorized,
-  UserNotFound,
-} from "../error/customError";
+import { CustomError, InvalidEmail, InvalidName, InvalidPassword, Unauthorized, UserNotFound } from "../error/customError";
 import {
   UserInputDTO,
   user,
   EditUserInputDTO,
   EditUserInput,
   LoginInputDTO,
-  UserRole,
 } from "../model/user";
+import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
 import { TokenGenerator } from "../services/TokenGenerator";
 
-const idGenerator = new IdGenerator();
-const tokenGenerator = new TokenGenerator();
-const hashmanager = new HashManager();
+const idGenerator = new IdGenerator()
+const tokenGenerator = new TokenGenerator()
 const userDatabase = new UserDatabase();
+const hashManager = new HashManager()
 
 export class UserBusiness {
   public createUser = async (input: UserInputDTO): Promise<string> => {
     try {
-      const { name, nickname, email, password, role } = input;
+      const { name, nickname, email, password } = input;
 
-      if (!name || !nickname || !email || !password || !role) {
+      if (!name || !nickname || !email || !password) {
         throw new CustomError(
           400,
-          'Preencha os campos "name","nickname", "email", "role" e "password"'
+          'Preencha os campos "name","nickname", "email" e "password"'
         );
       }
 
@@ -45,30 +36,22 @@ export class UserBusiness {
         throw new InvalidEmail();
       }
 
-      const id: string = idGenerator.generateId();
+      const id: string = idGenerator.generateId()
 
-      const hashPassword: string = await hashmanager.generateHash(password);
-
-      if (
-        role.toUpperCase() !== UserRole.ADMIN &&
-        role.toUpperCase() !== UserRole.NORMAL
-      ) {
-        throw new InvalidRole();
-      }
+      const hashPassword: string = await hashManager.generateHash(password) 
 
       const user: user = {
         id,
         name,
         nickname,
         email,
-        password: hashPassword,
-        role,
+        password:hashPassword
       };
-
+   
       await userDatabase.insertUser(user);
-      const token = tokenGenerator.generateToken({ id, role });
+      const token = tokenGenerator.generateToken(id)
 
-      return token;
+      return token
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
@@ -77,9 +60,12 @@ export class UserBusiness {
   public login = async (input: LoginInputDTO): Promise<string> => {
     try {
       const { email, password } = input;
-
+    
       if (!email || !password) {
-        throw new CustomError(400, 'Preencha os campos"email" e "password"');
+        throw new CustomError(
+          400,
+          'Preencha os campos"email" e "password"'
+        );
       }
 
       if (!email.includes("@")) {
@@ -89,19 +75,18 @@ export class UserBusiness {
       const user = await userDatabase.findUser(email);
 
       if (!user) {
-        throw new UserNotFound();
+        throw new UserNotFound()
       }
 
-      if (password !== user.password) {
-        throw new InvalidPassword();
+      const compareResult: boolean = await hashManager.compareHash(password, user.password) 
+
+      if(!compareResult){ 
+        throw new InvalidPassword()
       }
 
-      const token = tokenGenerator.generateToken({
-        id: user.id,
-        role: user.role,
-      });
-
-      return token;
+      const token = tokenGenerator.generateToken(user.id)
+     
+      return token
     } catch (error: any) {
       throw new CustomError(400, error.message);
     }
@@ -118,14 +103,10 @@ export class UserBusiness {
         );
       }
 
-      const data = tokenGenerator.tokenData(token);
+      const data = tokenGenerator.tokenData(token)
 
-      if (data.role.toUpperCase() !== UserRole.ADMIN) {
-        throw new Unauthorized();
-      }
-
-      if (!data.id) {
-        throw new Unauthorized();
+      if(!data.id) {
+        throw new Unauthorized()
       }
 
       if (name.length < 4) {
@@ -142,16 +123,6 @@ export class UserBusiness {
       await userDatabase.editUser(editUserInput);
     } catch (error: any) {
       throw new CustomError(400, error.message);
-    }
-  };
-
-  public getUserById = async (token: string) => {
-    try {
-      const userDatabase = new UserDatabase();
-      const user = await userDatabase.getUserById(token);
-      return user;
-    } catch (err: any) {
-      throw new Error(err.message);
     }
   };
 }
