@@ -1,5 +1,6 @@
 import * as jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import { AuthenticationData } from "../model/User";
 
 dotenv.config();
 
@@ -27,9 +28,4 @@ export class TokenGenerator {
   }
 }
 
-export interface AuthenticationData {
-  id: string;
-  role: string;
-}
-
-export default new TokenGenerator()
+export default new TokenGenerator();
