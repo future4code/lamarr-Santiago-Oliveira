@@ -3,8 +3,8 @@ POST http://localhost:3003/user/signup
 Content-Type: application/json
 
 {
-   "name": "Norman2 Osbourne", 
-   "nickname": "Green2 Goblin", 
+   "name": "Norman Osbourne", 
+   "nickname": "Green Goblin", 
    "email": "osbourne2@oscorp.com" ,
    "password": "idonthatepeter"
 }

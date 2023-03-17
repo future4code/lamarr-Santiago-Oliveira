@@ -1,0 +1,37 @@
+
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "Norman2", 
+   "nickname": "Green2", 
+   "email": "osbourne2@oscorp.com" ,
+   "password": "ihatepeter20",
+   "role": "normal"
+}
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "osbourne30@oscorp.com",
+   "password": "$2a$12$nOLpw6msrXuk5hnwesRtI.tRUZ04mPpWMEAjQrF.D9wBUw5nNkL4m"
+}
+
+###
+PUT http://localhost:3003/user/edit/6df0251c-66e7-4269-a848-c326423db2f6
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFjMTVhMGMyLTI0NjEtNDZhZi1hNTRlLTM0MDQ3ZjBlMWYxNiIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NzU4MTgwODcsImV4cCI6MTY3NTgyMTY4N30.8SRzyZG3KWsa9_TSEotky-wqya3OyJqnA9RFlP6tBlY
+
+{
+   "name": "Harry Osbourne",
+   "nickname": "Harry" 
+}
+
+###
+
+
+GET  http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBlZDMzNWQ5LTlhYTgtNGExOS05MGJkLTIwYzMzNmQxYjgwOSIsImlhdCI6MTY3NTI3NjU0MSwiZXhwIjoxNjc1MjgwMTQxfQ.fnl_pYtL-oKAXOX0hdJGrV_vr8u4VhKm9VJ_mr61I8o
